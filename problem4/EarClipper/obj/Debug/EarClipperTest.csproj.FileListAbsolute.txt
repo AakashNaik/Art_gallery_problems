@@ -1,0 +1,11 @@
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\obj\Debug\EarClipperTest.csprojAssemblyReference.cache
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\obj\Debug\EarClipperTest.csproj.CoreCompileInputs.cache
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\EarClipper.exe.config
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\EarClipper.exe
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\EarClipper.pdb
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\EarClipperLib.dll
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\Microsoft.Solver.Foundation.dll
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\bin\Debug\EarClipperLib.pdb
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\obj\Debug\EarClipperTest.csproj.CopyComplete
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\obj\Debug\EarClipper.exe
+C:\Users\aakas\Desktop\earclipper-master\EarClipper\obj\Debug\EarClipper.pdb
