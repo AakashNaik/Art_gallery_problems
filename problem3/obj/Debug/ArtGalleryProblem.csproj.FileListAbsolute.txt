@@ -1,0 +1,10 @@
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.AboutBox.resources
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.Form1.resources
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.Properties.Resources.resources
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.csproj.GenerateResource.cache
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.csproj.CoreCompileInputs.cache
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\bin\Debug\ArtGalleryProblem.exe
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\bin\Debug\ArtGalleryProblem.pdb
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.exe
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.pdb
+C:\Users\aakas\Desktop\bonesoul\art-gallery-problem\ArtGalleryProblem\obj\Debug\ArtGalleryProblem.csprojAssemblyReference.cache
