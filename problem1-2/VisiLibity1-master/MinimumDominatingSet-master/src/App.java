@@ -3,6 +3,10 @@
 import graph.*;
 import algorithms.*;
 import tools.GraphLoader;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.*;
 
 import java.util.List;
 
@@ -13,25 +17,16 @@ public class App
 		// System.out.println("Running tests ...");
 		// tests();
 
-		String filename = "data/fb_30.txt";
+		String filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/data.txt";
 
 		Graph g = new Graph();
 		tools.GraphLoader.loadGraph(g, filename);
 		
 		System.out.println("\nAnalyzing " + filename + " ...");
-  		System.out.println("The undirected facebook graph has " + g.getNumNodes() + " nodes.");
-		System.out.println("Undirected facebook graph has " + g.getNumEdges() + " edges.");
+  		System.out.println("The undirected graph has " + g.getNumNodes() + " nodes.");
+		System.out.println("Undirected  graph has " + g.getNumEdges() + " edges.");
 
-		long start_gds = System.currentTimeMillis();
-		List<Node> gds = DominatingSet.findGreedyDominatingSet(g);
-		long end_gds = System.currentTimeMillis();
-
-		double seconds_gds = end_gds/1000.0 - start_gds/1000.0;
-		System.out.println("\nThe program found a greedy dominating set in " + seconds_gds + " seconds.");
-		System.out.println("The greedy dominating set found contains " + gds.size() + " nodes");
-		System.out.print("The greedy dominating set is : ");
-		System.out.println(gds);
-
+		
 		long start_mds = System.currentTimeMillis();
 		List<Node> mds = DominatingSet.findMinimumDominatingSet(g);
 		long end_mds = System.currentTimeMillis();
@@ -40,10 +35,29 @@ public class App
 		System.out.println("\nThe program found a minimum dominating set in " + seconds_mds + " seconds.");
 		System.out.println("The minimum dominating set found contains " + mds.size() + " nodes.");
 		System.out.print("The minimum dominating set is: ");
-		System.out.println(mds);
-	}
-
-
+		Set<Integer>d=new HashSet<Integer>();
+		for(int i=0;i<mds.size();i++)
+		   d.add(mds.get(i).getName());
+        try 
+		{
+			filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/map.txt";
+			File myObj = new File(filename);
+			Scanner myReader = new Scanner(myObj);
+			int i=0;
+			while (myReader.hasNextLine()) {
+		
+				 String data = myReader.nextLine();
+				if(d.contains(i))
+				  System.out.println(data);
+				i++;
+			}
+			System.out.println(mds);
+		}
+		catch (FileNotFoundException e) {
+				System.out.println("An error occurred.");
+					e.printStackTrace();
+		}
+    }
 	public static void tests()
 	{
 		// TEST 1

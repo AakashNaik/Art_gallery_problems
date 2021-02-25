@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.SolverFoundation.Common;
+
 
 namespace EarClipper
 {
@@ -39,10 +41,30 @@ namespace EarClipper
 
         private static void PrintTriangles(List<Vector3m> points)
         {
+
+            var map = new Dictionary<Vector3m, int>();
+            int mapValue;
+           
             Console.WriteLine("Polygon:");
             for (int i = 0; i < points.Count; i += 3)
             {
+                if (map.TryGetValue(points[i], out mapValue))
+                {
+                    //map[points[0]]
+                    //Console.WriteLine(mapValue);
+                }
+                else
+                {
+                    map.Add(points[i], 1);
+                }
                 Console.WriteLine("Face{0}: {1} {2} {3}", i / 3, points[i], points[i+1], points[i+2]);
+            }
+            Console.WriteLine();
+            foreach (var pair in map)
+            {
+                Vector3m key = pair.Key;
+                //string value = pair.Value;
+                Console.WriteLine("{0}",key);
             }
             Console.WriteLine();
         }
