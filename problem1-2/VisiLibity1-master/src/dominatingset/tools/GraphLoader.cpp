@@ -8,7 +8,7 @@ class GraphLoader:
     public:
     static void loadGraph(Graph g, string filename) {
         
-        Set<Integer> seen = new HashSet<Integer>();
+        set<int> seen;
         Scanner sc;
         try {
             sc = new Scanner(new File(filename));
