@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
 #include "visilibity.hpp"  //VisiLibity header file
-//#include <cmath>         //Puts math functions in std namespace
 #include <cstdlib>       //rand, srand, exit
 #include <ctime>         //Unix time
 #include <fstream>       //File I/O
@@ -10,6 +8,8 @@
 #include <sstream>       //string streams
 #include <vector>        //std vectors
 //#define NDEBUG           //Turns off assert.
+#include<map>
+#include<set>
 #include <cassert>
 #include"clipper.hpp"
 #include<math.h>
@@ -20,21 +20,16 @@ struct vis
 {
 	Paths path;
 	TPPLPoint pt;
-	//double area;
-
 };
 
 struct v_comp
 {
-	
 	bool flag;
 	double x,y;
-	//set<int>d;
 };
 
 int main(int argc, char* argv[])
 {
-	//Check input validity
 	if (argc > 2) {
 		std::cerr << "Error: too many input arguments" << std::endl;
 		exit(1);
@@ -47,9 +42,6 @@ int main(int argc, char* argv[])
 	std::cout.setf(std::ios::showpoint);
 	std::cout.precision(IOS_PRECISION);
 
-
-	//Seed the rand() fnc w/Unix time
-	//(only necessary once at the beginning of the program)
 	std::srand(std::time(NULL)); rand();
     double epsilon = 0.00001;
 	std::cout << "Loading environment file ";
@@ -58,13 +50,9 @@ int main(int argc, char* argv[])
 	VisiLibity::Environment my_environment(environment_file);
 	std::cout << "OK" << std::endl;
 
-	
-
 	ofstream myfile, myfile1;
 	myfile.open("data.txt");
 	myfile1.open("map.txt");
-	
-	
 	
 	TPPLPolyList polylist{},outlist{};
 	TPPLPoly  poly;
@@ -94,7 +82,7 @@ int main(int argc, char* argv[])
 	}
 	
 	TPPLPartition z;
-	int y=     z.ConvexPartition_HM(&polylist,&outlist);
+	int y= z.ConvexPartition_HM(&polylist,&outlist);
     v_comp components[outlist.size()];
 	int i=0;
 	vector<set<VisiLibity::Point>>vert_poly;
@@ -174,6 +162,11 @@ int main(int argc, char* argv[])
 		
 	}
 	int tr=vert_poly.size();
+	string filename1 = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/guards.txt";
+  
+    ofstream newfile1; 
+	newfile1.open(filename1);
+
 	while(tr>0)
 	{
 		map<VisiLibity::Point,int>count;
@@ -208,8 +201,34 @@ int main(int argc, char* argv[])
 				tr--;
 			}
 		}
-        cout<<p<<'\n';
+		string d= to_string(p.x())+','+to_string(p.y());
+        cout<<d<<'\n';
+        newfile1<<d<<endl;
+        
 	}
+
+	string filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/vis.txt";
+  
+    ofstream newfile; 
+	newfile.open(filename);
+
+    if(newfile.is_open())
+    {
+        for(int i=0;i<=my_environment.h();i++)
+        {
+            string d= to_string(my_environment[i].n());
+            newfile<<d<<endl;
+            for(int j=0;j<my_environment[i].n();j++)
+            {
+
+                string d= to_string(my_environment[i][j].x())+','+to_string(my_environment[i][j].y());
+                cout<<d<<'\n';
+                newfile<<d<<endl;
+            }
+        }
+        newfile.close();
+    }
+    else cerr<<"Unable to open file";
 
 		//map<int,VisiLibity::Point>rt;
 	/*int j=0;
@@ -386,5 +405,5 @@ int main(int argc, char* argv[])
 		clpr.Execute(ctDifference, solution, pftEvenOdd, pftEvenOdd);
 		cout << solution;*/
 		//finally draw the intersection polygons ...
-		//DrawPolygons(solution, 0x40808080);
+		//DrawPolygons(solution, 0x40808080);*/
 }

@@ -1,53 +1,83 @@
 #include<iostream>
-#include<bits/stdc++.h>
-
+#include<set>
+#include<fstream>
+#include<sstream>
+#include<string>
+#include<vector>
+#include "Node.hpp"
+#include "Edge.hpp"
+#include "Graph.hpp"
+#include "DominatingSet.hpp"
 using namespace std;
-
 
 
 
 int  main()
 {
-    string filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/data.txt";
-    Graph g = new Graph();
-    tools.GraphLoader.loadGraph(g, filename);
-		
-		System.out.println("\nAnalyzing " + filename + " ...");
-  		System.out.println("The undirected graph has " + g.getNumNodes() + " nodes.");
-		System.out.println("Undirected  graph has " + g.getNumEdges() + " edges.");
-
-		
-		long start_mds = System.currentTimeMillis();
-		List<Node> mds = DominatingSet.findMinimumDominatingSet(g);
-		long end_mds = System.currentTimeMillis();
-
-		double seconds_mds = end_mds/1000.0 - start_mds/1000.0;
-		System.out.println("\nThe program found a minimum dominating set in " + seconds_mds + " seconds.");
-		System.out.println("The minimum dominating set found contains " + mds.size() + " nodes.");
-		System.out.print("The minimum dominating set is: ");
-		Set<Integer>d=new HashSet<Integer>();
-		for(int i=0;i<mds.size();i++)
-		   d.add(mds.get(i).getName());
-        try 
-		{
-			filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/map.txt";
-			File myObj = new File(filename);
-			Scanner myReader = new Scanner(myObj);
-			int i=0;
-			while (myReader.hasNextLine()) {
-		
-				 String data = myReader.nextLine();
-				if(d.contains(i))
-				  System.out.println(data);
-				i++;
+  string filename = "C:/Users/aakas/Desktop/Art_gallery/Art_gallery_problems/problem1-2/VisiLibity1-master/src/data.txt";
+  //cout<<"a";
+  Graph *g=new Graph();
+  //cout<<"a";
+  set<int> seen;
+	ifstream newfile; 
+	newfile.open(filename); 
+	if(newfile.is_open())
+	{
+		string tp;
+		while(getline(newfile, tp)){ //read data from file object and put it into string.
+			stringstream ss;    
+			ss << tp;
+			string temp;
+			int v1,v2;
+			ss >> temp;
+			if (stringstream(temp) >> v1)
+			{
+				if (seen.find(v1)==seen.end())
+				{
+          //cout<<v1<<'\n';
+					g->addNode(v1);
+					seen.insert(v1);
+				}
+					
 			}
-			System.out.println(mds);
-		}
-		catch (FileNotFoundException e) {
-				System.out.println("An error occurred.");
-					e.printStackTrace();
-		}
-    }
+			temp="";
+			ss>>temp;
+			if(stringstream(temp)>>v2)
+			{
+				if (seen.find(v2)==seen.end())
+				{
+          //cout<<v2<<'\n';
+					g->addNode(v2);
+					seen.insert(v2);
+				}
+			}
+      //cout<<((to_string(v1)))+((to_string(v2)))<<'\n';
+      //cout<<"b";
+   
+			g->addEdge(v1, v2);	
+      //cout<<"b";
+   
+		}		
+	}
+	newfile.close();
+   
+	cout<<"\nAnalyzing "<<filename<<" ...";
+  cout<<"The undirected graph has "<<g->getNumNodes()<< " nodes.";
+	cout<<"Undirected  graph has "<<g->getNumEdges()<<" edges.";
+
+		
+	vector<Node*> mds = DominatingSet::findMinimumDominatingSet(g);
+  
+  for(Node *i:mds)
+  {
+    cout<<i->getName()<<'\n';
+
+  }
+  
+  cout<<mds.size()<<'\n';
+		
+		
+}
 	
 	
 
